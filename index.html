@@ -1,0 +1,316 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body,html{background:#0A0E1A;color:#E8E4DC}
+.va-root{font-family:'Lato',sans-serif;background:#0A0E1A;color:#E8E4DC;min-height:100vh;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,0.95);border-bottom:1px solid rgba(212,168,67,0.15);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:60px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#D4A843;letter-spacing:1px}
+.nav-links{display:flex;gap:2px}
+.nav-btn{background:transparent;border:none;color:#9A9589;font-family:'Lato',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;padding:6px 14px;border-radius:4px;transition:all 0.2s}
+.nav-btn.active,.nav-btn:hover{color:#D4A843;background:rgba(212,168,67,0.1)}
+.hire-btn{background:linear-gradient(135deg,#D4A843,#B8882E);border:none;color:#0A0E1A;font-family:'Lato',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;padding:8px 20px;border-radius:4px;cursor:pointer}
+section{padding:5rem 2rem;max-width:1000px;margin:0 auto}
+.sec-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#D4A843;margin-bottom:0.75rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:#F0EBE0;margin-bottom:0.75rem;line-height:1.2}
+.divider{width:60px;height:2px;background:linear-gradient(90deg,#D4A843,transparent);margin-bottom:2.5rem}
+.hero{display:flex;align-items:center;gap:3rem;padding:5rem 2rem 4rem;max-width:1000px;margin:0 auto;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px}
+.badge{display:inline-block;background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.3);color:#D4A843;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;border-radius:99px;margin-bottom:1.5rem}
+h1.name{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:0.75rem;color:#F0EBE0}
+.hero-role{font-family:'Playfair Display',serif;font-size:18px;color:#D4A843;font-style:italic;margin-bottom:0.75rem}
+.hero-sub{font-size:15px;color:#9A9589;line-height:1.8;margin-bottom:1.75rem;font-weight:300}
+.cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.cta-pri{background:linear-gradient(135deg,#D4A843,#B8882E);border:none;color:#0A0E1A;font-weight:700;font-size:13px;letter-spacing:1px;padding:13px 28px;border-radius:4px;cursor:pointer;transition:transform 0.2s}
+.cta-pri:hover{transform:translateY(-2px)}
+.cta-sec{background:transparent;border:1px solid rgba(212,168,67,0.4);color:#D4A843;font-size:13px;letter-spacing:1px;padding:13px 28px;border-radius:4px;cursor:pointer;transition:all 0.2s}
+.cta-sec:hover{background:rgba(212,168,67,0.08)}
+.stats{display:flex;gap:2.5rem}
+.stat-n{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#D4A843}
+.stat-l{font-size:11px;color:#9A9589;letter-spacing:2px;text-transform:uppercase}
+.photo-wrap{flex-shrink:0;width:270px;height:330px;position:relative}
+.photo-frame{width:100%;height:100%;border-radius:60% 40% 50% 50% / 50% 50% 60% 40%;background:linear-gradient(135deg,rgba(212,168,67,0.25),rgba(168,197,232,0.1));border:2px solid rgba(212,168,67,0.25);overflow:hidden;position:relative}
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;transform:scale(0.9) translateY(30px);filter:grayscale(20%) contrast(1.05) brightness(1.1)}
+.photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,14,26,0.65) 100%)}
+.photo-badge{position:absolute;bottom:-16px;right:-16px;background:linear-gradient(135deg,#D4A843,#B8882E);border-radius:10px;padding:10px 16px}
+.photo-badge-top{font-size:9px;letter-spacing:2px;color:rgba(10,14,26,0.6);text-transform:uppercase}
+.photo-badge-bot{font-size:14px;font-weight:700;color:#0A0E1A}
+.exp-alt-bg{background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
+.exp-tabs{display:flex;border-bottom:1px solid rgba(212,168,67,0.15);margin-bottom:2rem;overflow-x:auto;gap:0}
+.exp-tab{background:none;border:none;border-bottom:2px solid transparent;color:#9A9589;cursor:pointer;font-size:12px;letter-spacing:1px;padding:12px 20px;white-space:nowrap;transition:all 0.2s;margin-bottom:-1px}
+.exp-tab.active{color:#D4A843;border-bottom-color:#D4A843}
+.exp-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:2rem}
+.exp-role{font-family:'Playfair Display',serif;font-size:22px;color:#F0EBE0;font-weight:700;margin-bottom:4px}
+.exp-meta{color:#9A9589;font-size:12px;letter-spacing:1px;margin-bottom:1.5rem}
+.exp-point{display:flex;gap:12px;margin-bottom:12px;font-size:14px;line-height:1.75;color:#C5BFB3;align-items:flex-start}
+.exp-dot{color:#D4A843;flex-shrink:0;margin-top:4px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.25rem}
+.chip{display:inline-block;background:rgba(212,168,67,0.1);border:1px solid rgba(212,168,67,0.25);color:#D4A843;font-size:11px;letter-spacing:1px;padding:4px 12px;border-radius:99px}
+.skills-grid{display:grid;grid-template-columns:200px 1fr;gap:2rem}
+.skill-cat-btn{display:block;width:100%;text-align:left;background:transparent;border:none;border-left:2px solid transparent;color:#9A9589;cursor:pointer;font-size:12px;letter-spacing:1px;padding:10px 14px;transition:all 0.2s;font-family:'Lato',sans-serif}
+.skill-cat-btn.active{color:#D4A843;background:rgba(212,168,67,0.08);border-left-color:#D4A843}
+.skill-cat-btn:hover{color:#D4A843}
+.skill-name-row{display:flex;justify-content:space-between;font-size:13px;color:#C5BFB3;margin-bottom:7px}
+.skill-pct{color:#D4A843}
+.bar-bg{background:rgba(255,255,255,0.08);border-radius:99px;height:6px;overflow:hidden;margin-bottom:1.1rem}
+.bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#D4A843,#D4A84399);transition:width 1.2s cubic-bezier(0.4,0,0.2,1)}
+.all-chips{margin-top:2.5rem;padding:1.75rem;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid rgba(255,255,255,0.06)}
+.all-chips-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#9A9589;margin-bottom:1rem}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+.proj-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.5rem;transition:border-color 0.3s,transform 0.3s;cursor:default}
+.proj-card:hover{border-color:rgba(212,168,67,0.3);transform:translateY(-4px)}
+.proj-icon{font-size:32px;margin-bottom:1rem}
+.proj-name{font-family:'Playfair Display',serif;font-size:17px;color:#F0EBE0;font-weight:700;margin-bottom:6px}
+.proj-desc{font-size:13px;color:#9A9589;line-height:1.7}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.edu-card{background:rgba(212,168,67,0.04);border:1px solid rgba(212,168,67,0.15);border-radius:12px;padding:1.75rem}
+.edu-deg{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#D4A843;margin-bottom:6px}
+.edu-inst{font-size:14px;color:#E8E4DC;line-height:1.5;margin-bottom:6px}
+.edu-period{font-size:11px;color:#9A9589;letter-spacing:2px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.25rem;margin-bottom:2.5rem}
+.contact-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.5rem;text-align:center;text-decoration:none;display:block;transition:border-color 0.3s,transform 0.3s}
+.contact-card:hover{border-color:rgba(212,168,67,0.3);transform:translateY(-4px)}
+.contact-icon{font-size:26px;margin-bottom:10px}
+.contact-label{font-size:10px;letter-spacing:2px;color:#D4A843;text-transform:uppercase;margin-bottom:4px}
+.contact-val{font-size:13px;color:#C5BFB3}
+.contact-cta{text-align:center}
+footer{border-top:1px solid rgba(255,255,255,0.06);text-align:center;padding:2rem;font-size:12px;color:#9A9589}
+footer em{color:#D4A843;font-family:'Playfair Display',serif}
+</style>
+
+<div class="va-root">
+<nav>
+  <div class="nav-logo">VA</div>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="scrollToSec('hero',this)">About</button>
+    <button class="nav-btn" onclick="scrollToSec('exp',this)">Experience</button>
+    <button class="nav-btn" onclick="scrollToSec('skills',this)">Skills</button>
+    <button class="nav-btn" onclick="scrollToSec('projects',this)">Projects</button>
+    <button class="nav-btn" onclick="scrollToSec('contact',this)">Contact</button>
+  </div>
+  <button class="hire-btn" onclick="scrollToSec('contact',null)">Hire Me ✦</button>
+</nav>
+
+<div id="hero" class="hero">
+  <div class="hero-text">
+    <div class="badge">✦ Available for opportunities</div>
+    <h1 class="name">Vatsala<br>Awasthi</h1>
+    <div class="hero-role">Senior Software Engineer</div>
+    <p class="hero-sub">5+ years crafting scalable backend systems, REST APIs, and microservices. Passionate about clean architecture, production reliability, and building software that matters.</p>
+    <div class="cta-row">
+      <button class="cta-pri" onclick="scrollToSec('contact',null)">Get In Touch</button>
+      <button class="cta-sec" onclick="scrollToSec('exp',null)">View Experience</button>
+    </div>
+    <div class="stats">
+      <div><div class="stat-n">5+</div><div class="stat-l">Years Exp</div></div>
+      <div><div class="stat-n">3</div><div class="stat-l">Companies</div></div>
+      <div><div class="stat-n">10+</div><div class="stat-l">Tech Stacks</div></div>
+    </div>
+  </div>
+  <div class="photo-wrap">
+    <div class="photo-frame">
+      <img src="img.png" alt="Vatsala Awasthi" onerror="this.parentElement.style.background='linear-gradient(135deg,rgba(212,168,67,0.3),rgba(168,197,232,0.15))';this.style.display='none';this.parentElement.innerHTML+='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-family:Playfair Display,serif;font-size:60px;color:rgba(212,168,67,0.5)\'>VA</div>'">
+      <div class="photo-overlay"></div>
+    </div>
+    <div class="photo-badge">
+      <div class="photo-badge-top">Currently at</div>
+      <div class="photo-badge-bot">GlobalLogic</div>
+    </div>
+  </div>
+</div>
+
+<div id="exp" style="background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)">
+<section>
+  <div class="sec-label">Career Journey</div>
+  <h2 class="sec-title">Work Experience</h2>
+  <div class="divider"></div>
+  <div class="exp-tabs">
+    <button class="exp-tab active" onclick="switchExp(0,this)">GlobalLogic · Senior</button>
+    <button class="exp-tab" onclick="switchExp(1,this)">GlobalLogic · Engineer</button>
+    <button class="exp-tab" onclick="switchExp(2,this)">Coforge</button>
+  </div>
+  <div class="exp-card" id="exp-content"></div>
+</section>
+</div>
+
+<div id="skills">
+<section>
+  <div class="sec-label">Expertise</div>
+  <h2 class="sec-title">Technical Skills</h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div id="skill-cats" style="border-right:1px solid rgba(255,255,255,0.07);padding-right:1rem"></div>
+    <div id="skill-bars"></div>
+  </div>
+  <div class="all-chips">
+    <div class="all-chips-label">All Technologies</div>
+    <div class="chips" id="all-chips-content"></div>
+  </div>
+</section>
+</div>
+
+<div id="projects" style="background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)">
+<section>
+  <div class="sec-label">Portfolio</div>
+  <h2 class="sec-title">Projects</h2>
+  <div class="divider"></div>
+  <div class="proj-grid">
+    <div class="proj-card"><div class="proj-icon">🎯</div><div class="proj-name">Quiz Application</div><div class="proj-desc">Built with Spring Boot and Microservices architecture for scalable quiz delivery.</div></div>
+    <div class="proj-card"><div class="proj-icon">💉</div><div class="proj-name">Vaccination Booking</div><div class="proj-desc">Microservices-based web app for vaccine slot booking and management.</div></div>
+    <div class="proj-card"><div class="proj-icon">🏥</div><div class="proj-name">Doctor Consultancy</div><div class="proj-desc">Full-stack app using Spring Boot, Hibernate, and Angular for doctor-patient consultations.</div></div>
+    <div class="proj-card"><div class="proj-icon">🧬</div><div class="proj-name">Protein Sequence Analysis</div><div class="proj-desc">Data analysis using Association Rule Mining in R for bioinformatics research.</div></div>
+  </div>
+</section>
+</div>
+
+<section>
+  <div class="sec-label">Academic Background</div>
+  <h2 class="sec-title">Education</h2>
+  <div class="divider"></div>
+  <div class="edu-grid">
+    <div class="edu-card"><div class="edu-deg">MCA</div><div class="edu-inst">JSS Academy of Technical Education, AKTU</div><div class="edu-period">2017 – 2020</div></div>
+    <div class="edu-card"><div class="edu-deg">BCA</div><div class="edu-inst">Dr. Virendra Swarup Institute of Computer Studies, CSJMU</div><div class="edu-period">2014 – 2017</div></div>
+  </div>
+</section>
+
+<div id="contact" style="background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.05)">
+<section>
+  <div class="sec-label">Let's Connect</div>
+  <h2 class="sec-title">Get In Touch</h2>
+  <div class="divider"></div>
+  <p style="font-size:16px;color:#9A9589;line-height:1.8;font-style:italic;text-align:center;max-width:560px;margin:0 auto 2.5rem">Open to exciting backend engineering roles, architectural challenges, and collaborative teams building at scale.</p>
+  <div class="contact-grid">
+    <a href="mailto:awasthivatsala@gmail.com" class="contact-card"><div class="contact-icon">📧</div><div class="contact-label">Email</div><div class="contact-val">awasthivatsala@gmail.com</div></a>
+    <a href="tel:+918874816095" class="contact-card"><div class="contact-icon">📱</div><div class="contact-label">Phone</div><div class="contact-val">+91 8874816095</div></a>
+    <a href="https://in.linkedin.com/in/vatsala-awasthi-b392a117b" target="_blank" class="contact-card"><div class="contact-icon">💼</div><div class="contact-label">LinkedIn</div><div class="contact-val">vatsala-awasthi</div></a>
+    <div class="contact-card"><div class="contact-icon">📍</div><div class="contact-label">Location</div><div class="contact-val">India</div></div>
+  </div>
+  <div class="contact-cta">
+    <a href="mailto:awasthivatsala@gmail.com" style="display:inline-block;text-decoration:none;background:linear-gradient(135deg,#D4A843,#B8882E);color:#0A0E1A;font-weight:700;font-size:14px;letter-spacing:1px;padding:16px 48px;border-radius:4px">Send Me an Email ✦</a>
+  </div>
+</section>
+</div>
+
+<footer><em>Vatsala Awasthi</em> · Senior Software Engineer · Built with passion ✦</footer>
+</div>
+
+<script>
+const exps = [
+  {
+    role:"Senior Software Engineer", company:"GlobalLogic", period:"Feb 2024 – Present",
+    color:"#D4A843",
+    points:[
+      "Designed and developed backend APIs for Kinetic Business (Windstream) supporting order management, customer onboarding, and account provisioning workflows.",
+      "Built backend services for order submission, account creation, service date validation, product availability, and credit check workflows.",
+      "Resolved production and UAT defects across customer-facing APIs, improving system reliability and reducing business-critical failures.",
+      "Developed Java Spring Boot microservices for scalable backend integrations and service orchestration.",
+      "Managed deployments across Dev, UAT, and Production using Azure and Rancher.",
+      "Monitored logs and debugged service failures using Kibana for faster root cause analysis."
+    ],
+    stack:["Java","Spring Boot","Microservices","MySQL","Azure","Rancher","Kibana","Postman"]
+  },
+  {
+    role:"Software Engineer", company:"GlobalLogic", period:"May 2022 – Jan 2024",
+    color:"#A8C5E8",
+    points:[
+      "Worked on Google DevShop projects (Simba and Accord) supporting contract and deal management between Google and third-party partners.",
+      "Developed new features and resolved user-reported issues through code fixes, backend enhancements, and database updates.",
+      "Managed Accord database operations using Google Spanner for scalable transactional data handling."
+    ],
+    stack:["Java","SQL","GCP","Google Spanner","PLX Dashboard","IntelliJ IDEA"]
+  },
+  {
+    role:"Software Engineer", company:"Coforge (Erstwhile NIIT Technologies)", period:"Jan 2020 – Apr 2022",
+    color:"#9B88C4",
+    points:[
+      "Managed content and promotional workflows for BritishAirways.com in the Travel, Tourism & Hospitality domain.",
+      "Developed and maintained splash pages, offers, carousels, newsletters, and promotional content updates.",
+      "Handled website content updates including flight pricing and sales changes requested by client teams."
+    ],
+    stack:["Java","HTML","CSS","JavaScript","Teamsite","Oracle RightNow"]
+  }
+];
+
+const skillData = {
+  "Core Languages":[{n:"Java",l:95},{n:"SQL",l:88},{n:"C",l:65},{n:"JavaScript",l:70}],
+  "Frameworks & APIs":[{n:"Spring Boot",l:93},{n:"Microservices",l:90},{n:"REST APIs",l:92},{n:"Spring AI",l:72},{n:"React JS",l:60},{n:"Angular",l:58}],
+  "Databases":[{n:"MySQL",l:88},{n:"Hibernate / JDBC",l:82},{n:"Google Spanner",l:75}],
+  "DevOps & Cloud":[{n:"Docker",l:78},{n:"Kubernetes",l:70},{n:"AWS",l:68},{n:"Kafka",l:73}],
+  "Architecture & CS":[{n:"System Design",l:82},{n:"DSA",l:80},{n:"Agile",l:90}],
+  "Tools":[{n:"Git",l:90},{n:"Postman",l:88},{n:"Swagger",l:85},{n:"Kibana",l:78},{n:"IntelliJ IDEA",l:90}]
+};
+
+const allTechs = ["Java","Spring Boot","Microservices","REST APIs","Spring AI","Docker","Kubernetes","AWS","Azure","GCP","Kafka","System Design","DSA","MySQL","Google Spanner","Hibernate","Git","Kibana","Postman","Swagger","React JS","Angular","HTML/CSS","Agile"];
+
+let activeExp = 0;
+let activeCat = Object.keys(skillData)[0];
+
+function scrollToSec(id, btn) {
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  if(btn) {
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+}
+
+function switchExp(i, btn) {
+  activeExp = i;
+  document.querySelectorAll('.exp-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderExp();
+}
+
+function renderExp() {
+  const e = exps[activeExp];
+  const el = document.getElementById('exp-content');
+  el.innerHTML = `
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem">
+      <div>
+        <div class="exp-role">${e.role}</div>
+        <div class="exp-meta">${e.company} · ${e.period}</div>
+      </div>
+      <div style="width:40px;height:40px;border-radius:50%;background:${e.color}22;border:1px solid ${e.color}55;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:${e.color};font-size:18px">${e.company[0]}</div>
+    </div>
+    <div>${e.points.map(p=>`<div class="exp-point"><span class="exp-dot">◆</span><span>${p}</span></div>`).join('')}</div>
+    <div class="chips">${e.stack.map(s=>`<span class="chip">${s}</span>`).join('')}</div>
+  `;
+}
+
+function switchCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('.skill-cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderSkillBars();
+}
+
+function renderSkillBars() {
+  const bars = document.getElementById('skill-bars');
+  const items = skillData[activeCat];
+  bars.innerHTML = `<div style="font-family:'Playfair Display',serif;font-size:18px;color:#F0EBE0;margin-bottom:1.25rem;font-style:italic">${activeCat}</div>` +
+    items.map(s=>`
+      <div>
+        <div class="skill-name-row"><span>${s.n}</span><span class="skill-pct">${s.l}%</span></div>
+        <div class="bar-bg"><div class="bar-fill" data-lvl="${s.l}" style="width:0%"></div></div>
+      </div>
+    `).join('');
+  setTimeout(()=>{
+    bars.querySelectorAll('.bar-fill').forEach(b=>{ b.style.width=b.dataset.lvl+'%'; });
+  }, 80);
+}
+
+function renderSkillCats() {
+  const cats = document.getElementById('skill-cats');
+  cats.innerHTML = Object.keys(skillData).map((cat,i)=>
+    `<button class="skill-cat-btn${i===0?' active':''}" onclick="switchCat('${cat}',this)">${cat}</button>`
+  ).join('');
+}
+
+function renderAllChips() {
+  document.getElementById('all-chips-content').innerHTML = allTechs.map(t=>`<span class="chip">${t}</span>`).join('');
+}
+
+renderExp();
+renderSkillCats();
+renderSkillBars();
+renderAllChips();
+</script>
